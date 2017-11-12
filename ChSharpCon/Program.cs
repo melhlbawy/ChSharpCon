@@ -12,8 +12,11 @@ namespace ChSharpCon
             // Simple Data Types
             //IntegralTypes i = new IntegralTypes();
             //i.IntegralType();
-            ExapmlesForValueType boo = new ExapmlesForValueType();
-            boo.ChecksIfTheInputCharacterIsALetter();
+            //ExapmlesForValueType boo = new ExapmlesForValueType();
+            //boo.ChecksIfTheInputCharacterIsALetter();
+            ValueDataType resualtFromMixingIntegralAndFloatData = new ValueDataType();
+            resualtFromMixingIntegralAndFloatData.DoubleTypes();
+            resualtFromMixingIntegralAndFloatData.FloatType();
 
             Console.ReadKey();
         }

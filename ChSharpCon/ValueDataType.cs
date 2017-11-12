@@ -186,5 +186,142 @@ namespace ChSharpCon
              Currency Format string for my money: $6.154;
               */
         }
+        /* 5- Double 
+         * The double keyword signifies a simple type that stores 64-bit floating-point values.
+         */
+        public void DoubleTypes() {
+            /*
+                *By default, a real numeric literal on the right side of the assignment operator is treated as double.
+                *However, if you want an integer number to be treated as double, use the suffix d or D, for example:
+              double x = 3D;
+           *Conversions
+              You can mix numeric integral types and floating - point types in an expression.
+              In this case, the integral types are converted to floating - point types.
+              The evaluation of the expression is performed according to the following rules:
+                1 - If one of the floating - point types is double, the expression evaluates to double,
+                or bool in relational or Boolean expressions.
+                2 - If there is no double type in the expression, it evaluates to float,
+                or bool in relational or Boolean expressions.
+              A floating - point expression can contain the following sets of values:
+                  *Positive and negative zero.
+                  * Positive and negative infinity.
+                  * Not - a - Number value(NaN).
+                  * The finite set of nonzero values.
+               */
+            // Mixing types in expressions
+            int x = 3;
+            float y = 4.5f;
+            short z = 5;
+            double w = 1.7E+3;
+            // Result of the 2nd argument is a double:
+            Console.WriteLine("The sum is {0}", x + y + z + w);
+
+            // the output will be double
+            //  The sum is 1712.5
+            // To get the result Type
+            var resualtType = x + y + z + w;
+            Console.WriteLine(resualtType.GetType());
+            // the resual will be System.Double -- Refrences for Double data types
+
+        }
+        /* 6- float 
+         * The float keyword signifies a simple type that stores 32-bit floating-point values
+         */
+         public void FloatType()
+        {
+            /* 
+             * Literals
+             * By default, a real numeric literal on the right side of the assignment operator is treated as double.
+             * Therefore, to initialize a float variable, use the suffix f or F, as in the following example:C#
+             *  float x = 3.5F;  
+             *  If you do not use the suffix in the previous declaration, you will get a compilation error because you 
+             are trying to store a double value into a float variable. 
+              */
+
+            int x = 3;
+            float y = 4.5f;
+            short z = 5;
+            var result = x * y / z;
+            Console.WriteLine("The result is {0}", result);
+            Type type = result.GetType();
+            Console.WriteLine("result is of type {0}", type.ToString());
+            
+            /* Output: 
+              The result is 2.7
+              result is of type System.Single //'float' is alias for 'Single'
+             */
+         }
+        /* 7- int
+         * int denotes an integral type that stores values according to the size and range:
+         * -2,147,483,648 to 2,147,483,647.
+         * 
+         */
+         public void IntType()
+        {
+            /* 
+             * You can declare and initialize an int variable by assigning a decimal literal, a hexadecimal literal, 
+             * or (starting with C# 7) a binary literal to it.
+             * if the initialize value outside of the int range that give an compiler error
+             * 
+             */
+             // Declare int type
+            int intValue1 = 90946; // decimal literal
+            Console.WriteLine(intValue1);
+            int intValue2 = 0x16342; // Hexadecimal 
+            Console.WriteLine(intValue2);
+
+            int intValue3 = 0b0001_0110_0011_0100_0010; //binar literal
+            Console.WriteLine(intValue3);
+            // The example displays the following output:
+            //          90946
+            //          90946
+            //          90946
+
+            //Conversions
+            // There is a predefined implicit conversion from int to long, float, double, or decimal. For example:
+            //  // '123' is an int, so an implicit conversion takes place here: float f = 123; 
+            //  There is a predefined implicit conversion from sbyte, byte, short, ushort, or char to int.
+            //  For example, the following assignment statement will produce a compilation error without a cast:
+             long aLong = 22;
+            //  int i1 = aLong;       // Error: no implicit conversion from long.
+              int i2 = (int)aLong;  // OK: explicit conversion. 
+            //  Notice also that there is no implicit conversion from floating-point types to int.
+            //  For example, the following statement generates a compiler error unless an explicit cast is used:
+            //  int x = 3.0;         // Error: no implicit conversion from double.
+              int y = (int)3.0;    // OK: explicit conversion.
+
+
+            }
+        /* 
+         * There are more Types have the same rules of int 
+         * 8- uint 9- long 10- ulong
+         * 
+         * there are some types have some rules different  like:
+         * 11- sbyte 12- short 14- ushort
+         */
+
+        /* 14 - Enum
+         * The enum keyword is used to declare an enumeration, a distinct type that consists of a set of named constants
+         * called the enumerator list. 
+         */
+        
+    }
+    public class EnumerationTypes
+    {
+            // Usually it is best to define an enum directly within a namespace so that all classes in the namespace can access it with equal convenience. 
+            // However, an enum can also be nested within a class or struct.
+            // By default, the first enumerator has the value 0, and the value of each successive enumerator is increased by 1.
+            // For example, in the following enumeration, Sat is 0, Sun is 1, Mon is 2, and so forth.
+        enum Days { Sat, Sun, Mon, Tue, Wed, Thu, Fri };
+            // Enumerators can use initializers to override the default values, as shown in the following example.
+        enum DaysChangeDefault { Sat = 1, Sun, Mon, Tue, Wed, Thu, Fri };
+        // In this enumeration, the sequence of elements is forced to start from 1 instead of 0. 
+        // However, including a constant that has the value of 0 is recommended.
+        // Every enumeration type has an underlying type, which can be any integral type except char.
+        // The default underlying type of enumeration elements is int.
+        // To declare an enum of another integral type, such as byte, use a colon after the identifier followed by the type,
+        // as shown in the following example.
+       enum DaysChangeType : byte { Sat = 1, Sun, Mon, Tue, Wed, Thu, Fri };
+        // The approved types for an enum are byte, sbyte, short, ushort, int, uint, long, or ulong. 
     }
 }
